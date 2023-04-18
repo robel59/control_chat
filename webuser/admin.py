@@ -1,0 +1,21 @@
+from django.contrib import admin
+from .models import *
+
+admin.site.register(webservice)
+admin.site.register(webservice_template)
+admin.site.register(payment_type)
+admin.site.register(service_payment)
+admin.site.register(payment_way)
+admin.site.register(payment_confermation)
+admin.site.register(notiffication)
+admin.site.register(email_type)
+admin.site.register(selected_email)
+admin.site.register(domainname_list)
+admin.site.register(domainname_found_list)
+admin.site.register(domainname_selected)
+admin.site.register(promo_type)
+admin.site.register(promo_service)
+admin.site.register(promo_selected)
+admin.site.register(domainname_cost)
+admin.site.register(store_data)
+admin.site.register(user_data)

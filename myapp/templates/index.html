@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Time Display</title>
+</head>
+<body>
+    <h1>Current Time:</h1>
+    <p id="time"></p>
+    <script>
+    
+            var host = "ws://" + window.location.host + "/ws/time/"; 
+            const ws = new WebSocket(host)
+
+
+                ws.onopen = () => {
+                  console.log('Websocket connection opened')
+                  // Send data via websocket
+                  ws.send(JSON.stringify({type: 'client_message', data: 'Hello World'}))
+                }
+
+
+                ws.onmessage = (message) => {
+                    console.log('Received message: ', message)
+                    const data = message.data
+                    document.getElementById("time").innerHTML = data
+                      switch (data.type) {
+                        case 'server_message':
+                          // do something
+                          break
+                      }
+                }
+
+
+                ws.onclose = () => {
+                  console.log('Websocket connection closed')
+                }
+                
+            
+    </script>
+</body>
+</html>
